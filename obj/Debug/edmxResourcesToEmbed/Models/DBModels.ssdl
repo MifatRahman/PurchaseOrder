@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProductDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Purchasedetails">
+    <Key>
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="ItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemName" Type="varchar" MaxLength="50" />
+    <Property Name="Qty" Type="int" />
+    <Property Name="Rate" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Purchaseorder">
+    <Key>
+      <PropertyRef Name="RefID" />
+    </Key>
+    <Property Name="RefID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PoNo" Type="int" />
+    <Property Name="PoDate" Type="date" />
+    <Property Name="ExDate" Type="date" />
+    <Property Name="Supplier" Type="varchar" MaxLength="50" />
+    <Property Name="Remark" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="ProductDBModelStoreContainer">
+    <EntitySet Name="Purchasedetails" EntityType="Self.Purchasedetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Purchaseorder" EntityType="Self.Purchaseorder" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,33 @@
+﻿@model PurchaseOrder.Models.Purchaseorder
+@{
+    Layout = null;
+}
+
+@using (Html.BeginForm("AddOrEdit", "Order", FormMethod.Post, new { onsubmit = "return SubmitFrom(this)" }))
+{
+    @Html.HiddenFor(Model => Model.RefID)
+    <div class="form-group">
+        @Html.LabelFor(Model => Model.PoNo, new { @class = "control-label" })
+        @Html.EditorFor(Model => Model.PoNo, new { HtmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(Model => Model.PoNo)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(Model => Model.PoDate, new { @class = "control-label" })
+        @Html.EditorFor(Model => Model.PoDate, new { HtmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(Model => Model.PoDate)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(Model => Model.Supplier, new { @class = "control-label" })
+        @Html.EditorFor(Model => Model.Supplier, new { HtmlAttributes = new { @class = "form-control" } })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(Model => Model.ExDate, new { @class = "control-label" })
+        @Html.EditorFor(Model => Model.ExDate, new { HtmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="submit" class="btn btn-primary" />
+        <input type="reset" value="Reset" class="btn btn-warning" />
+    </div>
+
+}

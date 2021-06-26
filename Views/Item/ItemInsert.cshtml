@@ -1,0 +1,30 @@
+﻿@model PurchaseOrder.Models.Purchasedetail
+@{
+    Layout = null;
+}
+
+@using (Html.BeginForm("ItemInsert", "Item", FormMethod.Post, new { onsubmit = "return SubmitFrom(this)" }))
+{
+    @Html.HiddenFor(Model => Model.ItemID)
+    <div class="form-group">
+        @Html.LabelFor(Model => Model.ItemName, new { @class = "control-label" })
+        @Html.EditorFor(Model => Model.ItemName, new { HtmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(Model => Model.ItemName)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(Model => Model.Qty, new { @class = "control-label" })
+        @Html.EditorFor(Model => Model.Qty, new { HtmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(Model => Model.Qty)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(Model => Model.Rate, new { @class = "control-label" })
+        @Html.EditorFor(Model => Model.Rate, new { HtmlAttributes = new { @class = "form-control" } })
+    </div>
+    
+
+    <div class="form-group">
+        <input type="submit" value="submit" class="btn btn-primary" />
+        <input type="reset" value="Reset" class="btn btn-warning" />
+    </div>
+
+}
